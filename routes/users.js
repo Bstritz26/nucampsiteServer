@@ -9,11 +9,11 @@ router.get("/", authenticate.verifyUser, authenticate.verifyAdmin, function (req
 });
 router.get("/users", function (req, res, next) {
     User.find()
-        .then((users)) => {
+        .then((users) => {
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json({ users });
-    }
+    })
 });
 
 router.post("/signup", (req, res) => {
